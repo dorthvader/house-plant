@@ -10,6 +10,8 @@ python = "~3.11"
 nicegui = "^1.4.5"
 sqlalchemy = "^2.0.25"
 gunicorn = "^21.2.0"
+ipython = "^8.23.0"
+pytest = "^8.1.1"
 
 
 [build-system]
