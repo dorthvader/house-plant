@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "house_plant"
+version = "0.1.0"
+description = ""
+authors = ["Dorothy House <dorothydavishouse@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "~3.11"
+nicegui = "^1.4.5"
+sqlalchemy = "^2.0.25"
+gunicorn = "^21.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
