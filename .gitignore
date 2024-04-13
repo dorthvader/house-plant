@@ -1,3 +1,2 @@
-house_plant/__pycache__/*
-tests/__pycache__/*
+__pycache__/
 plants.db
