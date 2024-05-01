@@ -1,0 +1,1 @@
+## For Problem Requirements Doc, [start here!](https://github.com/dorthvader/house-plant/wiki/PRD-%E2%80%90-House%E2%80%90plant)
