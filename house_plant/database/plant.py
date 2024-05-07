@@ -1,9 +1,10 @@
 """Functionality to create plant table."""
-from house_plant.database.database import Base
+from house_plant.database.database import Base, add_rows
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Session
 
-from typing import Optional
+from typing import Optional, TypedDict
 
 from enum import Enum
 
@@ -54,3 +55,12 @@ class PlantORM(Base):
     light_info: Mapped[Optional[str]]
     dryness_info: Mapped[Optional[str]]
     fertilizing_info: Mapped[Optional[str]]
+
+def create_plant_rows(plant_dicts: list[dict]):
+    """."""
+    # Ideally, this should be validating the inputs
+    # as the ORM objects are being created
+    plants = []
+    for d in plant_dicts:
+        plants.append(PlantORM(**d))
+    return plants

@@ -2,8 +2,10 @@
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase
-
+from enum import Enum
 import os
+from sqlalchemy.orm import Session
+
 
 # import logging
 
@@ -24,3 +26,8 @@ def create_database(db_name: str=DEFAULT_DB_STR) -> None:
     engine = create_engine("sqlite:///"+db_name, echo=True)
     Base.metadata.create_all(engine)
     return engine
+
+def add_rows(ORMs, engine):
+    with Session(engine) as session:
+        session.add_all(ORMs)
+        session.commit()
