@@ -56,8 +56,8 @@ class PlantORM(Base):
     dryness_info: Mapped[Optional[str]]
     fertilizing_info: Mapped[Optional[str]]
 
-def create_plant_rows(plant_dicts: list[dict]):
-    """."""
+def create_plant_rows(plant_dicts: list[dict]) -> list[PlantORM]:
+    """Create ORM objects to be inserted into the plant table."""
     # Ideally, this should be validating the inputs
     # as the ORM objects are being created
     plants = []

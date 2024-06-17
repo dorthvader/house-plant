@@ -12,6 +12,7 @@ from sqlalchemy.orm import Session
 DEFAULT_DB_STR = "plants.db"
 
 class Base(DeclarativeBase):
+    """Boiler plate to create database."""
     pass
 
 def get_database_engine(db_name: str=DEFAULT_DB_STR) -> sqlalchemy.Engine:
@@ -21,13 +22,14 @@ def get_database_engine(db_name: str=DEFAULT_DB_STR) -> sqlalchemy.Engine:
     # TODO: add logging here
     return create_database()
 
-def create_database(db_name: str=DEFAULT_DB_STR) -> None:
+def create_database(db_name: str=DEFAULT_DB_STR) -> sqlalchemy.Engine:
     """Create sqlite database."""
     engine = create_engine("sqlite:///"+db_name, echo=True)
     Base.metadata.create_all(engine)
     return engine
 
-def add_rows(ORMs, engine):
+def add_rows(ORMs, engine) -> None:
+    """Add rows to a table using orm objects."""
     with Session(engine) as session:
         session.add_all(ORMs)
         session.commit()
